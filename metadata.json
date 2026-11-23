@@ -1,0 +1,8 @@
+{
+  "name": "XO WORLD — أكاديمية XO الرياضية",
+  "description": "منصة XO WORLD المتكاملة لإدارة أكاديمية XO الرياضية — رجّع له البطل اللي جواه",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

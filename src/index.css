@@ -1,0 +1,62 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --xo-bg: #080D18;
+    --xo-surface: #101827;
+    --xo-surface-elevated: #152033;
+    --xo-accent: #FF6B1A;
+    --xo-text: #FFFFFF;
+    --xo-muted: #94A3B8;
+    --font-display: 'Cairo', sans-serif;
+    --font-body: 'IBM Plex Sans Arabic', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+
+  html {
+    direction: rtl;
+    font-family: var(--font-body);
+    background-color: var(--xo-bg);
+    color: var(--xo-text);
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  .font-mono-num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom sleek dark scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080D18;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E293B;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
