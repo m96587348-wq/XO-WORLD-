@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict';
 import http from 'node:http';
 import { after, before, beforeEach, describe, it } from 'node:test';
-import { createApp } from '../server';
-import { resetStoreForTests } from '../server/store';
+import { createApp } from '../server.ts';
+import { resetStoreForTests } from '../server/store.ts';
 
 let server: http.Server;
 let baseUrl = '';

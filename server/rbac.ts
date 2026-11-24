@@ -1,12 +1,13 @@
 import type { NextFunction, Request, Response } from 'express';
-import { verifySessionToken } from './auth';
-import { getStore, type StoredUser } from './store';
+import { verifySessionToken } from './auth.ts';
+import { getStore } from './store.ts';
+import type { StoredUser } from './store.ts';
 import type {
   AppRole,
   DelegatePermissionKey,
   MediaItem,
   Player,
-} from '../src/types/xo';
+} from '../src/types/xo.ts';
 
 export interface AuthenticatedRequest extends Request {
   authUser?: StoredUser;

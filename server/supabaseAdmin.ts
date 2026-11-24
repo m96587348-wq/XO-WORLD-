@@ -1,5 +1,5 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
-import type { SystemConfigStatus } from '../src/types/xo';
+import type { SystemConfigStatus } from '../src/types/xo.ts';
 
 let adminClient: SupabaseClient | null = null;
 

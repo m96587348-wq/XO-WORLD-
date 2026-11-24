@@ -1,4 +1,4 @@
-import { hashPassword } from './auth';
+import { hashPassword } from './auth.ts';
 import type {
   AcademyEvent,
   Announcement,
@@ -18,7 +18,7 @@ import type {
   Sport,
   SubscriptionRecord,
   TrainingGroup,
-} from '../src/types/xo';
+} from '../src/types/xo.ts';
 
 export interface StoredUser {
   id: string;

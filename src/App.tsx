@@ -16,6 +16,7 @@ import { ToastProvider, useToast } from './components/ToastProvider';
 import { PWAInstallButton } from './components/PWAInstallButton';
 import { OfflineIndicator } from './components/OfflineIndicator';
 import { SupabaseSetupModal } from './components/SupabaseSetupModal';
+import { WelcomeScreen } from './components/WelcomeScreen';
 import { AuthScreen } from './pages/AuthScreen';
 import { HomePage, type NavTab } from './pages/HomePage';
 import { AcademyPage } from './pages/AcademyPage';
@@ -47,6 +48,7 @@ const AppContent: React.FC = () => {
   const [activeTab, setActiveTab] = useState<NavTab>('home');
   const [configStatus, setConfigStatus] = useState<SystemConfigStatus | null>(null);
   const [setupOpen, setSetupOpen] = useState(false);
+  const [showAuthScreen, setShowAuthScreen] = useState(false);
 
   useEffect(() => {
     apiFetch<SystemConfigStatus>('/api/system/config-status')
@@ -58,10 +60,14 @@ const AppContent: React.FC = () => {
     setAuthToken(null);
     setUser(null);
     setActiveTab('home');
+    setShowAuthScreen(false);
     showToast('تم تسجيل الخروج بأمان.', 'info');
   };
 
   if (!user) {
+    if (!showAuthScreen) {
+      return <WelcomeScreen onProceedToLogin={() => setShowAuthScreen(true)} />;
+    }
     return (
       <AuthScreen
         configStatus={configStatus}

@@ -8,7 +8,7 @@ import {
   hashPassword,
   signSessionToken,
   verifyPassword,
-} from './auth';
+} from './auth.ts';
 import {
   canAccessMediaItem,
   canEditPlayerProfile,
@@ -22,11 +22,11 @@ import {
   requireAuth,
   toPublicUserProfile,
   writeAuditLog,
-  type AuthenticatedRequest,
-} from './rbac';
-import { getStore } from './store';
-import { getSystemConfigStatus } from './supabaseAdmin';
-import type { AppRole, DelegatePermissionKey } from '../src/types/xo';
+} from './rbac.ts';
+import type { AuthenticatedRequest } from './rbac.ts';
+import { getStore } from './store.ts';
+import { getSystemConfigStatus } from './supabaseAdmin.ts';
+import type { AppRole, DelegatePermissionKey } from '../src/types/xo.ts';
 
 const UPLOAD_DIR = path.resolve('/tmp', 'xo_world_uploads');
 fs.mkdirSync(UPLOAD_DIR, { recursive: true });

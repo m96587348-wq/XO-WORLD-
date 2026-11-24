@@ -3,8 +3,7 @@ import express from 'express';
 import fs from 'fs';
 import http from 'http';
 import path from 'path';
-import { createServer as createViteServer } from 'vite';
-import { createApiRouter } from './server/routes';
+import { createApiRouter } from './server/routes.ts';
 
 export function createApp() {
   const app = express();
@@ -21,6 +20,7 @@ async function startServer() {
   const port = Number(process.env.PORT || 3000);
 
   if (!isProd) {
+    const { createServer: createViteServer } = await import('vite');
     const vite = await createViteServer({
       server: {
         middlewareMode: { server: httpServer },
